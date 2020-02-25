@@ -33,24 +33,11 @@ class NavBar extends Component {
                     <p onClick={this.handleLogOut}>Log out</p>
                 </Button>
             </div> )
-        } else if (pathname === '/restaurants/:id'){
-            // return (<div>
-            //     <Button className="ui button">
-            //         <NavLink to="/home">Back</NavLink>
-            //     </Button>
-            //     <Button className="ui button">
-            //         <NavLink to="/profile">Profile</NavLink>
-            //     </Button>
-            //     <Button className="ui button">
-            //         <p onClick={this.handleLogOut}>Log out</p>
-            //     </Button>
-            // </div> ) 
-            console.log("hello")
         }
     }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         let {location:pathname, user} = this.props
         return (
                 <Button.Group>
