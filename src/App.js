@@ -1,18 +1,12 @@
 import React from 'react';
 import {Switch, Route} from 'react-router'
-
 import {withRouter} from 'react-router-dom'
-
-import SignUpSignInForm from './components/SignUpSignInForm'
-import NavBar from './components/NavBar'
-import Home from './components/Home'
-import OneRestaurantContainer from './components/OneRestaurantContainer'
-import ProfileContainer from './ProfileComponents/ProfileContainer'
-
 import {connect} from 'react-redux'
 import {initializeRestaurants} from './Actions/restaurantActions'
 import {saveUserToState} from './Actions/userActions'
-
+import NavBar from './components/NavBar'
+import MainContainer from './components/MainContainer';
+import SignUpSignInForm from './components/SignUpSignInForm'
 
 
 class App extends React.Component {
@@ -86,6 +80,17 @@ class App extends React.Component {
     }
   }
 
+  renderMainContainer = (routerProps) => {
+    let restaurantObjId = routerProps.match.params.id
+    if(routerProps.location.pathname === "/home"){
+      return <MainContainer containerType="Home Container"/>
+    } else if (routerProps.location.pathname === "/profile") {
+      return <MainContainer containerType="Profile Container"/>
+    } else if (routerProps.location.pathname.startsWith('/restaurants')) {
+      return <MainContainer containerType="Restaurant Container" restaurantObjId={restaurantObjId}/>
+    }
+  }
+
 
   render(){
     return (
@@ -94,9 +99,9 @@ class App extends React.Component {
         <Switch>
           <Route path="/signin" render={ this.renderForm } />
           <Route path="/signup" render={ this.renderForm } />
-          <Route path="/restaurants/:id" component={OneRestaurantContainer}/>
-          <Route path="/profile" exact component={ProfileContainer} />
-          <Route path="/home" exact component={Home} />
+          <Route path="/restaurants/:id" render={ this.renderMainContainer }/>
+          <Route path="/profile" render={ this.renderMainContainer } />
+          <Route path="/home" render={ this.renderMainContainer } />
           <Route render={ () => <p>Page not Found</p> } />
         </Switch>
       </div>

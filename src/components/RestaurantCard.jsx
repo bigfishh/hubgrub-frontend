@@ -5,14 +5,14 @@ import { Card, Image } from 'semantic-ui-react'
 class RestaurantCard extends React.Component {
 
     render(){
-        let {restaurant} = this.props
+        let {media_image, name} = this.props.restaurant
         return (
-        <div>
-            <Image className="ui fluid image" src={restaurant.media_image} wrapped ui={false} />
-            <Card.Content>
-            <Card.Header>{restaurant.name}</Card.Header>
-            </Card.Content>
-        </div>
+            <div>
+                <Image className="ui fluid image" src={media_image} wrapped ui={false} />
+                <Card.Content>
+                    <Card.Header>{name}</Card.Header>
+                </Card.Content>
+            </div>
         )
     }
 }

@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react'; 
 import {connect} from 'react-redux'
 import {logoutUser} from '../Actions/userActions'
 import { Button, Header, Image } from 'semantic-ui-react'
 
 
-
-class ProfileContainer extends Component {
+class ProfileCard extends React.Component {
 
     handleDelete = () => {
-        let {id} = this.props.user
+        let {id} = this.props.userInfo
         fetch(`http://localhost:3000/users/${id}`, {
             method: 'DELETE'
         })
@@ -21,22 +20,16 @@ class ProfileContainer extends Component {
         })
     }
 
-    render() {
-        let {user} = this.props
-
-        return (
-        <div>
+    render(){
+        let {userInfo} = this.props
+        return(
+            <div>
             <Header as='h2'>
-                <Image circular src={user.img_url} /> {user.username}
+                <Image circular src={userInfo.img_url} /> {userInfo.username}
             </Header>
             <Button onClick={this.handleDelete}>Delete Account</Button>
         </div>
-        );
+        )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        user: state.userInfo.user
-    }
-}
-export default connect(mapStateToProps, {logoutUser})(ProfileContainer);
+export default connect(null, {logoutUser})(ProfileCard);
