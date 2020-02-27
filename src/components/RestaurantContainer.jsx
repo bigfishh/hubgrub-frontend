@@ -1,6 +1,6 @@
 import React from 'react';
 import RestaurantCard from './RestaurantCard'
-// import MenuContainer from './MenuContainer'
+import CheckoutCard from '../CheckoutCartComponents/CheckoutCard'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import { Card } from 'semantic-ui-react'
@@ -19,6 +19,7 @@ class RestaurantContainer extends React.Component {
         return (
             <div>
                     {this.renderAllCard()}
+                    <CheckoutCard />
             </div>
         )
     }

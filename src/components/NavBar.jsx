@@ -26,7 +26,7 @@ class NavBar extends Component {
             </div> )
         } else if (pathname === '/profile'){
             return (<div>
-                <Button className="ui button">
+                <Button className="ui button active">
                     <NavLink to="/home">Home</NavLink>
                 </Button>
                 <Button className="ui button">
@@ -38,7 +38,7 @@ class NavBar extends Component {
 
     render() {
         // console.log(this.props)
-        let {location:pathname, user} = this.props
+        let {user} = this.props
         return (
                 <Button.Group>
                     {user.username ?

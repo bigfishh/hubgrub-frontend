@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuCard from './MenuCard'
 import {NavLink, withRouter} from 'react-router-dom';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Image } from 'semantic-ui-react'
 
 
 class OneRestaurantContainer extends React.Component {
@@ -31,19 +31,26 @@ class OneRestaurantContainer extends React.Component {
         })
     }
 
-    render(){
-        let {restaurant} = this.state
+    renderNavButtons = () => {
         return (
-        <div className="OneRestaurantContainer">
+            <div>
                 <Button className="ui button">
                     <NavLink to="/home">Back</NavLink>
                 </Button>
                 <Button className="ui button">
                     <NavLink to="/profile">Profile</NavLink>
                 </Button>
-                <Button className="ui button">
-                    <p onClick={this.handleLogOut}>Log out</p>
+                <Button className="ui button" onClick={this.handleLogOut}>
+                    Log out
                 </Button>
+            </div>)
+    }
+
+    render(){
+        let {restaurant} = this.state
+        return (
+        <div className="OneRestaurantContainer">
+            {this.renderNavButtons()}
                 <Image className="ui med image" src={restaurant.media_image} alt={restaurant.name} wrapped ui={false} />
                 <h1>{restaurant.name}</h1>
             {this.renderMenuItems()}
