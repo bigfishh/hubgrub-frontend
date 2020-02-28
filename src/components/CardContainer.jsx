@@ -10,6 +10,7 @@ import { Card } from 'semantic-ui-react'
 
 class CardContainer extends React.Component {
 
+
     renderRestaurantCards = () => {
         let {restaurants} = this.props
         return restaurants.map((restObj) => 
@@ -42,7 +43,7 @@ class CardContainer extends React.Component {
         else if (this.props.containerType === "Menu"){
             return (
                 <div>
-                    <CheckoutCard/>
+                    <CheckoutCard cart={this.props.userInfo.cart}/>
                     {this.renderMenuItems()}
                 </div>
             )

@@ -20,13 +20,27 @@ class ProfileCard extends React.Component {
         })
     }
 
+    renderPastOrders = () => {
+        let {past_orders} = this.props.userInfo
+        if (past_orders){
+            return past_orders.map((order) => (
+                order.food_ordered.map((food) => {
+                    return (
+                        <li>{food.item_name}</li>)
+                })
+            ))
+        }
+    }
+
     render(){
         let {userInfo} = this.props
+        // console.log(this.props.userInfo.past_orders)
         return(
             <div>
             <Header as='h2'>
                 <Image circular src={userInfo.img_url} /> {userInfo.username}
             </Header>
+            <ul>{this.renderPastOrders()}</ul>
             <Button onClick={this.handleDelete}>Delete Account</Button>
         </div>
         )

@@ -11,3 +11,18 @@ export const logoutUser = () => {
         type: "LOGOUT_USER"
     }
 }
+
+export const addItemToCart = (newCart) => {
+    return {
+        type: "ADD_ITEM_TO_CART",
+        payload: newCart
+    
+    }
+}
+
+export const checkoutCart = (updatedUser) => {
+    return {
+        type: "CHECKOUT_CART",
+        payload: updatedUser
+    }
+}
