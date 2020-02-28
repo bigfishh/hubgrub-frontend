@@ -24,14 +24,13 @@ class MenuItemCard extends React.Component {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             this.props.addItemToCart(data.food_ordered)
         })
     }
 
     render(){
         let {item_name, price} = this.props.item
-        console.log(this.props)
         return(
             <div onClick={this.handleAddToCart}>
                 {item_name}

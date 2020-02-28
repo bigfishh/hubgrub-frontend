@@ -31,7 +31,7 @@ class CheckoutCard extends React.Component {
         })
         .then( resp => resp.json())
         .then(updatedUser => {
-            console.log(updatedUser)
+            this.props.checkoutCart(updatedUser)
         })
     }
 

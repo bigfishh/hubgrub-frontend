@@ -16,7 +16,7 @@ const userReducer = (state = initialState, {type, payload}) => {
             // debugger
             return {...state, user: {...state.user, cart: {...state.user.cart, food_ordered: payload}}}
         case "CHECKOUT_CART":
-            return {...state, user: {...state.user, cart: {...state.user.cart}}}
+            return {...state, user: payload}
         default:
             return state;
 
