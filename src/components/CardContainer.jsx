@@ -27,7 +27,7 @@ class CardContainer extends React.Component {
         let foundRestaurant = restaurants.find((restObj) => restObj.id === parseInt(targetRestaurant))        
         if(foundRestaurant){
             return foundRestaurant.restitems.map((item) => {
-                return <MenuItemCard item={item}/>
+                return <MenuItemCard cardType="Menu Item" key={item.id} item={item}/>
             })
         }
     }

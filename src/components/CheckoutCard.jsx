@@ -1,5 +1,6 @@
 import React from 'react'; 
 import {connect} from 'react-redux'
+import MenuItemCard from './MenuItemCard';
 import {checkoutCart} from '../Actions/userActions'
 
 class CheckoutCard extends React.Component {
@@ -39,7 +40,7 @@ class CheckoutCard extends React.Component {
         let {food_ordered} = this.props.cart
             if (food_ordered) {
                 return food_ordered.map((food) => {
-                    return (<li>{food.item_name}</li>)
+                    return (<MenuItemCard cardType="Cart Item" key={food.id} item={food}/>)
                 })
             }
     }
@@ -47,7 +48,7 @@ class CheckoutCard extends React.Component {
     render(){
         console.log(this.props.cart)
         return(
-            <div>
+            <div className={"hello cart"}>
                 {this.renderCartItem()}
                 <p>Total: {this.findCartTotal()}</p>
                 <button onClick={this.handleCheckout}>Checkout</button>

@@ -20,6 +20,15 @@ export const addItemToCart = (newCart) => {
     }
 }
 
+export const removeItemFromCart = (updatedCart) => {
+    console.log('removed me, action', updatedCart)
+    return {
+        type: "REMOVE_ITEM_FROM_CART",
+        payload: updatedCart
+    
+    }
+}
+
 export const checkoutCart = (updatedUser) => {
     return {
         type: "CHECKOUT_CART",
