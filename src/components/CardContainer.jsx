@@ -39,14 +39,15 @@ class CardContainer extends React.Component {
             )
         } else if (this.props.containerType === "Profile"){
             return <ProfileCard userInfo={this.props.userInfo} cardType="Profile"/>
-        } 
-        else if (this.props.containerType === "Menu"){
+        } else if (this.props.containerType === "Menu"){
             return (
                 <div>
-                    <CheckoutCard cart={this.props.userInfo.cart}/>
+                    <CheckoutCard cardType="Cart" cart={this.props.userInfo.cart}/>
                     {this.renderMenuItems()}
                 </div>
             )
+        } else if (this.props.containerType === "Checkout"){
+            return  <CheckoutCard cardType="Checkout" cart={this.props.userInfo.cart}/>
         }
     }
 

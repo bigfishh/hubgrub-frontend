@@ -88,6 +88,8 @@ class App extends React.Component {
       return <MainContainer containerType="Profile Container"/>
     } else if (routerProps.location.pathname.startsWith('/restaurants')) {
       return <MainContainer containerType="Restaurant Container" restaurantObjId={restaurantObjId}/>
+    } else if (routerProps.location.pathname === "/checkout") {
+      return <MainContainer containerType="Checkout Container"/>
     }
   }
 
@@ -102,6 +104,7 @@ class App extends React.Component {
           <Route path="/restaurants/:id" render={ this.renderMainContainer }/>
           <Route path="/profile" render={ this.renderMainContainer } />
           <Route path="/home" render={ this.renderMainContainer } />
+          <Route path="/checkout" render={ this.renderMainContainer } />
           <Route render={ () => <p>Page not Found</p> } />
         </Switch>
       </div>

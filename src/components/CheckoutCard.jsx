@@ -1,5 +1,6 @@
 import React from 'react'; 
 import {connect} from 'react-redux'
+import {NavLink, withRouter} from 'react-router-dom';
 import MenuItemCard from './MenuItemCard';
 import {checkoutCart} from '../Actions/userActions'
 
@@ -45,13 +46,18 @@ class CheckoutCard extends React.Component {
             }
     }
 
+    renderButton = () => {
+
+    }
+
     render(){
-        console.log(this.props.cart)
+        console.log(this.props)
+        let {cardType} = this.props
         return(
             <div className={"hello cart"}>
                 {this.renderCartItem()}
-                <p>Total: {this.findCartTotal()}</p>
-                <button onClick={this.handleCheckout}>Checkout</button>
+                <p>Total: ${this.findCartTotal()}</p>
+                {cardType === "Checkout"? <button onClick={this.handleCheckout}>Submit</button>:<button><NavLink to="/checkout">Checkout</NavLink></button>}
             </div>
         )
     }
@@ -63,4 +69,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {checkoutCart})(CheckoutCard);
+export default connect(mapStateToProps, {checkoutCart})(withRouter(CheckoutCard));

@@ -19,8 +19,10 @@ class MainContainer extends React.Component {
         } else if (this.props.containerType === "Restaurant Container"){
             return (<div>
                 <CardContainer containerType="Menu" restaurant={this.props.restaurantObjId}/>
-                <CardContainer containerType="Checkout"/>
+                {/* <CardContainer containerType="Checkout"/> */}
                 </div>)
+        } else if (this.props.containerType === "Checkout Container"){
+            return <CardContainer containerType="Checkout"/>
         }
     }
 
