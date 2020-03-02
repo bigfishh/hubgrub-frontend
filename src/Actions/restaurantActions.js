@@ -5,6 +5,14 @@ export const initializeRestaurants = (restaurants) => {
     }
 }
 
+export const fetchAllCategories = (categories) => {
+    return {
+        type: "FETCH_CATEGORIES",
+        payload: categories
+    }
+}
+
+
 export const searchRestaurants = (restaurants) => {
     return {
         type: "SEARCH_RESTAURANTS",

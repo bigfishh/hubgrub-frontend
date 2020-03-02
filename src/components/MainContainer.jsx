@@ -7,6 +7,16 @@ import { Grid } from 'semantic-ui-react';
 
 class MainContainer extends React.Component {
 
+    state = {
+        category: "All"
+    }
+
+    changeCategory = (category) => {
+        this.setState({
+            category: category
+        })
+    }
+
     renderContainer = () => {
         if (this.props.containerType === "Home Container"){
             return(
@@ -14,10 +24,10 @@ class MainContainer extends React.Component {
                     <Search searchFor="Restaurant"/>
                     <Grid centered columns={2}>
                             <Grid.Column>
-                                <MapContainer/>
+                                <MapContainer category={this.state.category}/>
                             </Grid.Column>
                             <Grid.Column>
-                                <CardContainer containerType="All Restaurant Container"/>      
+                                <CardContainer category={this.state.category} changeCategory={this.changeCategory} containerType="All Restaurant Container"/>      
                             </Grid.Column>
                     </Grid>
                 </div>

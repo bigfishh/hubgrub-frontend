@@ -5,16 +5,21 @@ import {Container} from 'semantic-ui-react'
 
 const mapStyles = {
     width: '100%',
-    height: '100%',
-    "min-height": '100%',
+    height: '100%'
+    // "min-height": '100%',
 };
 
 class MapContainer extends React.Component {
 
     displayMarkers = () => {
-        // console.log(this.state.restaurants)
         let {restaurants} = this.props
-        return restaurants.map((restaurant) => {
+        let filteredArr = restaurants
+        if (this.props.category !== "All"){
+            filteredArr = restaurants.filter((restObj) => {
+                return restObj.category === this.props.category
+            })
+        }
+        return filteredArr.map((restaurant) => {
         return <Marker key={restaurant.id} id={restaurant.id} position={{
             lat: restaurant.latitude,
             lng: restaurant.longitude

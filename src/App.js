@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {initializeRestaurants} from './Actions/restaurantActions'
+import {initializeRestaurants, fetchAllCategories} from './Actions/restaurantActions'
 import {saveUserToState} from './Actions/userActions'
 import NavBar from './components/NavBar'
 import MainContainer from './components/MainContainer';
@@ -33,6 +33,16 @@ class App extends React.Component {
         }
       })
     }
+
+    fetch('http://localhost:3000/categories')
+    .then(resp => resp.json())
+    .then(resp => {
+      if (resp) {
+        this.props.fetchAllCategories(resp);
+      }
+    })
+
+
   }
 
   handleSignInSubmit = (userInfo) => {
@@ -114,4 +124,4 @@ class App extends React.Component {
 }
 
 
-export default connect(null, {initializeRestaurants, saveUserToState})(withRouter(App));
+export default connect(null, {initializeRestaurants, saveUserToState, fetchAllCategories})(withRouter(App));
