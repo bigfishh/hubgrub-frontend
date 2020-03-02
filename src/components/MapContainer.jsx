@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import { Map, GoogleApiWrapper, Marker} from 'google-maps-react';
 
 const mapStyles = {
-    width: '100%',
-    height: '70%',
+    width: '97%',
+    height: '100%',
 };
 
 class MapContainer extends React.Component {

@@ -5,7 +5,7 @@ import RestaurantCard from './RestaurantCard';
 import MenuItemCard from './MenuItemCard';
 import CheckoutCard from './CheckoutCard'
 import ProfileCard from './ProfileCard';
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 
 
 class CardContainer extends React.Component {
@@ -42,8 +42,19 @@ class CardContainer extends React.Component {
         } else if (this.props.containerType === "Menu"){
             return (
                 <div>
-                    <CheckoutCard cardType="Cart" cart={this.props.userInfo.cart}/>
-                    {this.renderMenuItems()}
+                    {/* <CheckoutCard cardType="Cart" cart={this.props.userInfo.cart}/> */}
+                    {/* {this.renderMenuItems()} */}
+
+                    <Grid centered columns={3}>
+                    {/* <Grid.Row centered columns={3}> */}
+                        <Grid.Column>
+                            {this.renderMenuItems()}
+                        </Grid.Column>
+                        <Grid.Column>
+                            <CheckoutCard cardType="Cart" cart={this.props.userInfo.cart}/>
+                        </Grid.Column>
+                    {/* </Grid.Row> */}
+                </Grid>
                 </div>
             )
         } else if (this.props.containerType === "Checkout"){

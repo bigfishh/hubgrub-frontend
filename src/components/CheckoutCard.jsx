@@ -1,6 +1,7 @@
 import React from 'react'; 
 import {connect} from 'react-redux'
 import {NavLink, withRouter} from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout'
 import MenuItemCard from './MenuItemCard';
 import {checkoutCart} from '../Actions/userActions'
 
@@ -17,9 +18,28 @@ class CheckoutCard extends React.Component {
         return total
     }
 
-    handleCheckout = () => {
+    onToken = (token) => {
         let {id} = this.props.cart
         let total = this.findCartTotal()
+
+        const charge = {
+            token: token.id
+        };
+        
+        const config = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                charge: charge, 
+                price: total * 100
+            })
+        };
+        fetch('http://localhost:3000/charges', config)
+        .then(res => res.json())
+        .then(console.log)
+
         fetch(`http://localhost:3000/orders/${id}`, {
             method: 'PATCH',
             headers: {
@@ -57,7 +77,7 @@ class CheckoutCard extends React.Component {
             <div className={"hello cart"}>
                 {this.renderCartItem()}
                 <p>Total: ${this.findCartTotal()}</p>
-                {cardType === "Checkout"? <button onClick={this.handleCheckout}>Submit</button>:<button><NavLink to="/checkout">Checkout</NavLink></button>}
+                {cardType === "Checkout"? <StripeCheckout token={this.onToken} stripeKey={process.env.REACT_APP_STRIPE_API_KEY}/>:<button><NavLink to="/checkout">Checkout</NavLink></button>}
             </div>
         )
     }
@@ -70,3 +90,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {checkoutCart})(withRouter(CheckoutCard));
+// {cardType === "Checkout"? <button onClick={this.handleCheckout}>Submit</button>:<button><NavLink to="/checkout">Checkout</NavLink></button>}
