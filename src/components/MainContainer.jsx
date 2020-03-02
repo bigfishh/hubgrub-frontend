@@ -13,16 +13,12 @@ class MainContainer extends React.Component {
                 <div>
                     <Search searchFor="Restaurant"/>
                     <Grid centered columns={2}>
-                        {/* <Grid.Row centered columns={3}> */}
                             <Grid.Column>
                                 <MapContainer/>
-                                {/* <CardContainer containerType="All Restaurant Container"/>       */}
                             </Grid.Column>
                             <Grid.Column>
-                                {/* <MapContainer/> */}
                                 <CardContainer containerType="All Restaurant Container"/>      
                             </Grid.Column>
-                        {/* </Grid.Row> */}
                     </Grid>
                 </div>
             )

@@ -51,7 +51,7 @@ class MenuItemCard extends React.Component {
 
     renderItem = () => {
         // console.log(this.props.item)
-        let {item_name, price, quantity} = this.props.item
+        let {item_name, price} = this.props.item
         if(this.props.cardType === "Menu Item"){
             return (
                 <div onClick={this.handleAddToCart}>

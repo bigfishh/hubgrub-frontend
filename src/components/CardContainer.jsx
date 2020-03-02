@@ -12,22 +12,36 @@ class CardContainer extends React.Component {
 
 
     renderRestaurantCards = () => {
-        let {restaurants} = this.props
-        return restaurants.map((restObj) => 
-            <Link to={`/restaurants/${restObj.id}`}>
-                <Card>
-                    <RestaurantCard cardType="One Restaurant Obj" key={restObj.id} restaurant={restObj}/>
-                </Card>
-            </Link>)
+        let {restaurants, searchTerm} = this.props
+        return restaurants.map((restObj) => {
+            let restMenuItems = restObj.restitems.map((item) => item.item_name)
+            let itemIncludingSearch = restMenuItems.some((string) => {
+                return string.toLowerCase().includes(searchTerm.toLowerCase())
+            })
+            if(restObj.name.toLowerCase().includes(searchTerm.toLowerCase()) || itemIncludingSearch){
+                return (
+                    <Link to={`/restaurants/${restObj.id}`}>
+                        <Card>
+                            <RestaurantCard cardType="One Restaurant Obj" key={restObj.id} restaurant={restObj}/>
+                        </Card>
+                    </Link>
+                )
+            } else {
+                return null
+            }
+        })
     }
 
     renderMenuItems = () => {
         let targetRestaurant = this.props.restaurant
-        let {restaurants} = this.props
+        let {restaurants, searchTerm} = this.props
         let foundRestaurant = restaurants.find((restObj) => restObj.id === parseInt(targetRestaurant))        
         if(foundRestaurant){
             return foundRestaurant.restitems.map((item) => {
-                return <MenuItemCard cardType="Menu Item" key={item.id} item={item}/>
+                if(item.item_name.toLowerCase().includes(searchTerm.toLowerCase())){
+                    return <MenuItemCard cardType="Menu Item" key={item.id} item={item}/>
+
+                }
             })
         }
     }
@@ -75,6 +89,7 @@ class CardContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         restaurants: state.restaurants.all,
+        searchTerm: state.restaurants.searchTerm,
         userInfo: state.userInfo.user
     }
 }

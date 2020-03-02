@@ -1,5 +1,6 @@
 const initialState = {
-    all: []
+    all: [],
+    searchTerm: ''
 }
 
 const restaurantReducer = (state = initialState, {type, payload}) => {
@@ -7,6 +8,10 @@ const restaurantReducer = (state = initialState, {type, payload}) => {
 
         case "INITIALIZE_RESTAURANTS":
             return {...state, all: payload}
+        case "SEARCH_RESTAURANTS":
+            return {...state, searchTerm: payload}
+        case "SEARCH_MENU_ITEMS":
+            return {...state, searchTerm: payload}
         default:
             return state;
 

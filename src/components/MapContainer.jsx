@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { Map, GoogleApiWrapper, Marker} from 'google-maps-react';
+import {Container} from 'semantic-ui-react'
 
 const mapStyles = {
-    width: '97%',
+    width: '100%',
     height: '100%',
+    "min-height": '100%',
 };
 
 class MapContainer extends React.Component {
@@ -23,13 +25,16 @@ class MapContainer extends React.Component {
 
     render(){
         return (
-            <Map
-                google={this.props.google}
-                zoom={15}
-                style={mapStyles}
-                initialCenter={{ lat: 40.7007, lng: -73.9875}}>
-                {this.displayMarkers()}
-            </Map>
+            <Container style={{height: "800px"}}>
+
+                <Map
+                    google={this.props.google}
+                    zoom={15}
+                    style={mapStyles}
+                    initialCenter={{ lat: 40.7007, lng: -73.9875}}>
+                    {this.displayMarkers()}
+                </Map>
+            </Container >
         )
     }
 }
