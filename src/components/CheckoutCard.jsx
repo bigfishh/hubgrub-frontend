@@ -1,9 +1,11 @@
 import React from 'react'; 
 import {connect} from 'react-redux'
-import {NavLink, withRouter} from 'react-router-dom';
-import StripeCheckout from 'react-stripe-checkout'
+import {Link, withRouter} from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout';
+// import { StripeProvider, Elements}  from 'react-stripe-elements';
 import MenuItemCard from './MenuItemCard';
 import {checkoutCart} from '../Actions/userActions'
+import { Button } from 'semantic-ui-react';
 
 class CheckoutCard extends React.Component {
 
@@ -66,18 +68,27 @@ class CheckoutCard extends React.Component {
             }
     }
 
-    renderButton = () => {
-
+    renderStripeCheckout = () => {
+        let {cart} = this.props
+        if(cart.food_ordered){
+            if (cart.food_ordered.length > 0) {
+                return <StripeCheckout token={this.onToken} stripeKey={process.env.REACT_APP_STRIPE_API_KEY}/>
+            } else {
+                return <StripeCheckout disabled token={this.onToken} stripeKey={process.env.REACT_APP_STRIPE_API_KEY}/>
+            }
+        }
     }
 
     render(){
         console.log(this.props)
         let {cardType} = this.props
         return(
-            <div className={"hello cart"}>
+            <div className="menuCheckout">
                 {this.renderCartItem()}
                 <p>Total: ${this.findCartTotal()}</p>
-                {cardType === "Checkout"? <StripeCheckout token={this.onToken} stripeKey={process.env.REACT_APP_STRIPE_API_KEY}/>:<button><NavLink to="/checkout">Checkout</NavLink></button>}
+                {/* {cardType === "Checkout"?  */}
+                    {this.renderStripeCheckout()}
+                    {/* :<Button as={Link} to="/checkout">Checkout</Button>} */}
             </div>
         )
     }
@@ -90,4 +101,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {checkoutCart})(withRouter(CheckoutCard));
-// {cardType === "Checkout"? <button onClick={this.handleCheckout}>Submit</button>:<button><NavLink to="/checkout">Checkout</NavLink></button>}

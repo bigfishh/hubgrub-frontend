@@ -1,6 +1,8 @@
 import React from 'react'; 
 import {connect} from 'react-redux';
 import {addItemToCart, removeItemFromCart} from '../Actions/userActions';
+import { Label, Table, Card, Item } from 'semantic-ui-react'
+
 
 class MenuItemCard extends React.Component {
 
@@ -44,26 +46,20 @@ class MenuItemCard extends React.Component {
         })
     }
 
-    // handleIncrease = () => {
-    //     console.log("i'm growing")
-    //     this.handleAddToCart()
-    // }
-
     renderItem = () => {
         // console.log(this.props.item)
         let {item_name, price} = this.props.item
         if(this.props.cardType === "Menu Item"){
             return (
-                <div onClick={this.handleAddToCart}>
-                    {item_name}  ${price}
-                </div>
+                    <Item onClick={this.handleAddToCart}>
+                        <Item.Content verticalAlign='middle'>{item_name} -- {`$${price}`}</Item.Content>
+                    </Item>       
             )
         } else if (this.props.cardType === "Cart Item") {
             return (
                 <div>
                     <button onClick={this.handleDecrease}>-</button>
-                    {item_name}  ${price}
-                    {/* <button onClick={this.handleIncrease}>+</button> */}
+                    <span> </span>{item_name} <span>    </span>  ${price}
                 </div>
             )
         }

@@ -1,18 +1,13 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react'
-
+import { Card } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 class RestaurantCard extends React.Component {
 
     render(){
-        let {media_image, name} = this.props.restaurant
+        let {media_image, name, id} = this.props.restaurant
         return (
-            <div>
-                <Image className="ui fluid image" src={media_image} wrapped ui={false} />
-                <Card.Content>
-                    <Card.Header>{name}</Card.Header>
-                </Card.Content>
-            </div>
+            <Card as={Link} to={`/restaurants/${id}`} image={media_image} header={name}/>
         )
     }
 }

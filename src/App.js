@@ -92,22 +92,30 @@ class App extends React.Component {
 
   renderMainContainer = (routerProps) => {
     let restaurantObjId = routerProps.match.params.id
-    if(routerProps.location.pathname === "/home"){
-      return <MainContainer containerType="Home Container"/>
-    } else if (routerProps.location.pathname === "/profile") {
-      return <MainContainer containerType="Profile Container"/>
-    } else if (routerProps.location.pathname.startsWith('/restaurants')) {
-      return <MainContainer containerType="Restaurant Container" restaurantObjId={restaurantObjId}/>
-    } else if (routerProps.location.pathname === "/checkout") {
-      return <MainContainer containerType="Checkout Container"/>
+    console.log(routerProps)
+    if(localStorage.token){
+      if(routerProps.location.pathname === "/home"){
+        return <MainContainer containerType="Home Container"/>
+      } else if (routerProps.location.pathname === "/profile") {
+        return <MainContainer containerType="Profile Container"/>
+      } else if (routerProps.location.pathname.startsWith('/restaurants')) {
+        return <MainContainer containerType="Restaurant Container" restaurantObjId={restaurantObjId}/>
+      } else if (routerProps.location.pathname === "/checkout") {
+        return <MainContainer containerType="Checkout Container"/>
+      }
+    }else{
+      this.props.history.push("/signin")
     }
   }
 
 
   render(){
+    console.log(this.props.token)
     return (
-      <div>
-        <NavBar/>
+      <div className="App">
+        {
+          window.location.pathname === "/signup" || window.location.pathname === "/signin" ? null : <NavBar/>
+        }
         <Switch>
           <Route path="/signin" render={ this.renderForm } />
           <Route path="/signup" render={ this.renderForm } />
@@ -123,5 +131,12 @@ class App extends React.Component {
 
 }
 
+const mapStateToProps = (state) => {
+  return {
+      userInfo: state.userInfo.user,
+      token: state.userInfo.token
+  }
+}
 
-export default connect(null, {initializeRestaurants, saveUserToState, fetchAllCategories})(withRouter(App));
+
+export default connect(mapStateToProps, {initializeRestaurants, saveUserToState, fetchAllCategories})(withRouter(App));

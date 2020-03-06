@@ -1,8 +1,6 @@
 import React from 'react';
 import MapContainer from './MapContainer';
 import CardContainer from './CardContainer';
-import Search from './Search';
-import { Grid } from 'semantic-ui-react';
 
 
 class MainContainer extends React.Component {
@@ -20,24 +18,16 @@ class MainContainer extends React.Component {
     renderContainer = () => {
         if (this.props.containerType === "Home Container"){
             return(
-                <div>
-                    <Search searchFor="Restaurant"/>
-                    <Grid centered columns={2}>
-                            <Grid.Column>
-                                <MapContainer category={this.state.category}/>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <CardContainer category={this.state.category} changeCategory={this.changeCategory} containerType="All Restaurant Container"/>      
-                            </Grid.Column>
-                    </Grid>
+                <div className="parentgrid">
+                    <MapContainer category={this.state.category}/>
+                    <CardContainer category={this.state.category} changeCategory={this.changeCategory} containerType="All Restaurant Container"/>      
                 </div>
             )
         } else if (this.props.containerType === "Profile Container"){
             return <CardContainer containerType="Profile"/>
         } else if (this.props.containerType === "Restaurant Container"){
             return (
-                <div>
-                    <Search value={"ewfwe"} searchFor="Menu Items"/>
+                <div className="menuCheckoutParentGrid">
                     <CardContainer containerType="Menu" restaurant={this.props.restaurantObjId}/>
                 </div>)
         } else if (this.props.containerType === "Checkout Container"){
@@ -47,7 +37,7 @@ class MainContainer extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className="MainContainer">
                 {this.renderContainer()}
             </div>
         )
