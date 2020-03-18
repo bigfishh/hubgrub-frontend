@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import hubgrub from './hubgrub.jpeg'
 import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux'
 import SearchBar from './SearchBar';
@@ -34,7 +35,7 @@ class NavBar extends Component {
         return (
             <Menu style={{width: "100%"}}>
                 <Menu.Item position={"left"}>
-                    <Image as={Link} to="/home" className="grubLogo" size='tiny' rounded src="https://s2.q4cdn.com/723557020/files/Grubhub-logo-251by107px@2x.png"/>
+                    <Image as={Link} to="/home" className="grubLogo" size='tiny' rounded src={`${hubgrub}`}/>
                 </Menu.Item>
                 <div className="navSearch">
                     {window.location.pathname === "/home" ? <SearchBar searchFor="Restaurant"/>: window.location.pathname.startsWith("/restaurants") ? <SearchBar searchFor="Restaurant"/>: null}
