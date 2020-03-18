@@ -1,68 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">HubGrub 🌯 🍱</h1>
 
-## Available Scripts
+<div align="center">
+  A <code>React</code> web app designed as an food delivery application that connects diners to restaurants. 
+</div>
 
-In the project directory, you can run:
+<br />
 
-### `yarn start`
+## Tech Stack
+This web app makes use of the following:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Backend**
+- Ruby [2.6.1]
+- Rails [~> 5.2.3] - MVC web framework used as an API
+- Bcrypt [~> 3.1.7] - Gem for encryption and securing user passwords
+- Dotenv - Rails gem for securing API Keys
+- Faker - Rails gem used to easily generate fake data: menu items
+- Yelp-Fusion - Ruby gem used to process data from the Yelp API
+- Active Model Serializers - Serializing API routes to JSON
+- JWT - securing tokens
+- PostgreSQL [>= 0.18, < 2.0] - Database
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Front End** [hubgrub-frontend](https://github.com/bigfishh/hubgrub-frontend)
+- React.js
+- React Router - Declarative Routing
+- Semantic UI React 
+- Custom CSS3 styling 
+- Google Maps React API
+- Stripe API
 
-### `yarn test`
+## Installing
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Backend Installation:**
 
-### `yarn build`
+- run `bundle install` to install required dependencies
+- Ensure you have PostgreSQL running
+- run `rails db:create` to create a database locally.
+- run `rails db:migrate` to create tables into the database.
+- run `rails db:seed` to create seed data.
+- run `rails s` to run the server. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Frontend Installation:**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Clone this repo to your local machine `git clone <this-repo-url>`
+- `cd` to frontend directory
+- Ensure your Backend API is running at `http://localhost:3000/`
+- run `npm install` to install all dependencies
+- run `npm start` to start server
+- When prompted, ensure Frontend is running at `http://localhost:3001`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `yarn eject`
+Users are able to sign up and sign in. Upon signing in, users are taken to their home page.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="./readme-gifs/signin-signup.gif"
+     alt="sign in option taken to home page"
+     style="max-width: 100%" />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User is able to see a list of restaurants in the New York City area via a list and on Google Maps. User is able to use buttons to filter restaurants based on categories. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="./readme-gifs/filterbycategory.gif"
+     alt="filter by category"
+     style="max-width: 100%" />
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+User is able to search by restaurant name.
 
-## Learn More
+<img src="./readme-gifs/searchbyrestaurantname.gif"
+     alt="search bar"
+     style="max-width: 100%" />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+User is able to to click on a restaurant card and be taken to one specific restaurant where menu items are displayed. User is able to add and remove items from cart. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="./readme-gifs/menu-item.gif"
+     alt="User is able to to click on a restaurant card and be taken to one specific restaurant where menu items are displayed"
+     style="max-width: 100%" />
 
-### Code Splitting
+Upon checkout, user is able to enter their credit card information.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<img src="./readme-gifs/pay.gif"
+     alt="User is able to add and remove items from cart. Upon checkout, user is able to enter their credit card information"
+     style="max-height: 100%" />
 
-### Analyzing the Bundle Size
+User is able to go to their profile page and see their confirmed order. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<img src="./readme-gifs/confirm.gif"
+     alt="User is able to go to their profile page and see their confirmed order"
+     style="max-height: 100%" />
 
-### Making a Progressive Web App
+User is able to delete their account or log out. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<img src="./readme-gifs/delete-logout.gif"
+     alt="User is able to delete their account"
+     style="max-height: 100%" />
