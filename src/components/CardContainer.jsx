@@ -135,4 +135,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(withRouter(CardContainer));
-{/* <h3>You have a open cart with <Link to={`/restaurants/${this.props.userInfo.cart.restaurant_id}`}>{this.props.userInfo.cart.restaurant_name}</Link></h3> */}
