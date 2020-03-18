@@ -32,7 +32,7 @@ This web app makes use of the following:
 
 **Backend Installation:**
 
-- Clone backend repo to your local machine `git clone <this-repo-url>`
+- Clone backend repo to your local machine `git clone <backend-repo-url>`
 - run `bundle install` to install required dependencies
 - Ensure you have PostgreSQL running
 - run `rails db:create` to create a database locally.
