@@ -42,7 +42,6 @@ This web app makes use of the following:
 **Frontend Installation:**
 
 - Clone this repo to your local machine `git clone <this-repo-url>`
-- `cd` to frontend directory
 - Ensure your Backend API is running at `http://localhost:3000/`
 - run `npm install` to install all dependencies
 - run `npm start` to start server
