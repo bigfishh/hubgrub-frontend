@@ -9,7 +9,7 @@
 ## Tech Stack
 This web app makes use of the following:
 
-**Backend**
+**Backend** [hubgrub-api](https://github.com/bigfishh/hubgrub-api)
 - Ruby [2.6.1]
 - Rails [~> 5.2.3] - MVC web framework used as an API
 - Bcrypt [~> 3.1.7] - Gem for encryption and securing user passwords
@@ -20,7 +20,7 @@ This web app makes use of the following:
 - JWT - securing tokens
 - PostgreSQL [>= 0.18, < 2.0] - Database
 
-**Front End** [hubgrub-frontend](https://github.com/bigfishh/hubgrub-frontend)
+**Front End** 
 - React.js
 - React Router - Declarative Routing
 - Semantic UI React 
