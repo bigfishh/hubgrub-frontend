@@ -9,7 +9,7 @@
 ## Tech Stack
 This web app makes use of the following:
 
-**Backend** [hubgrub-api](https://github.com/bigfishh/hubgrub-api)
+[**Backend**](https://github.com/bigfishh/hubgrub-api)
 - Ruby [2.6.1]
 - Rails [~> 5.2.3] - MVC web framework used as an API
 - Bcrypt [~> 3.1.7] - Gem for encryption and securing user passwords
@@ -32,7 +32,7 @@ This web app makes use of the following:
 
 **Backend Installation:**
 
-- Clone backend repo to your local machine `git clone <backend-repo-url>`
+- Clone [backend repo](https://github.com/bigfishh/hubgrub-api) to your local machine `git clone <backend-repo-url>`
 - run `bundle install` to install required dependencies
 - Ensure you have PostgreSQL running
 - run `rails db:create` to create a database locally.
