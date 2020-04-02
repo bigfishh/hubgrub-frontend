@@ -52,42 +52,56 @@ This web app makes use of the following:
 
 Users are able to sign up and sign in. Upon signing in, users are taken to their home page.
 
+<p align="center">
 <img src="./readme-gifs/signin-signup.gif"
      alt="sign in option taken to home page"
      style="max-width: 100%" />
+</p>
 
 User is able to see a list of restaurants in the New York City area via a list and on Google Maps. User is able to use buttons to filter restaurants based on categories. 
 
+<p align="center">
 <img src="./readme-gifs/filterbycategory.gif"
      alt="filter by category"
      style="max-width: 100%" />
+</p>
 
 User is able to search by restaurant name.
 
+<p align="center">
 <img src="./readme-gifs/searchbyrestaurantname.gif"
      alt="search bar"
      style="max-width: 100%" />
+</p>
 
 User is able to to click on a restaurant card and be taken to one specific restaurant where menu items are displayed. User is able to add and remove items from cart. 
 
+<p align="center">
 <img src="./readme-gifs/menu-item.gif"
      alt="User is able to to click on a restaurant card and be taken to one specific restaurant where menu items are displayed"
      style="max-width: 100%" />
+</p>
 
 Upon checkout, user is able to enter their credit card information.
 
+<p align="center">
 <img src="./readme-gifs/pay.gif"
      alt="User is able to add and remove items from cart. Upon checkout, user is able to enter their credit card information"
      style="max-height: 100%" />
+</p>
 
 User is able to go to their profile page and see their confirmed order. 
 
+<p align="center">
 <img src="./readme-gifs/confirm.gif"
      alt="User is able to go to their profile page and see their confirmed order"
      style="max-height: 100%" />
+</p>
 
 User is able to delete their account or log out. 
 
+<p align="center">
 <img src="./readme-gifs/delete-logout.gif"
      alt="User is able to delete their account"
      style="max-height: 100%" />
+</p>
