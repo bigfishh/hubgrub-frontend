@@ -1,7 +1,7 @@
 <h1 align="center">HubGrub 🌯 🍱</h1>
 
 <div align="center">
-  A <code>React</code> web app designed as an food delivery application that connects diners to restaurants. 
+  A <code>React</code> web app designed as a food delivery application that connects diners to restaurants. 
 </div>
 
 <br />
@@ -9,7 +9,7 @@
 ## Tech Stack
 This web app makes use of the following:
 
-**Backend** [hubgrub-api](https://github.com/bigfishh/hubgrub-api)
+[**Backend**](https://github.com/bigfishh/hubgrub-api)
 - Ruby [2.6.1]
 - Rails [~> 5.2.3] - MVC web framework used as an API
 - Bcrypt [~> 3.1.7] - Gem for encryption and securing user passwords
@@ -32,7 +32,7 @@ This web app makes use of the following:
 
 **Backend Installation:**
 
-- Clone backend repo to your local machine `git clone <backend-repo-url>`
+- Clone [backend repo](https://github.com/bigfishh/hubgrub-api) to your local machine `git clone <backend-repo-url>`
 - run `bundle install` to install required dependencies
 - Ensure you have PostgreSQL running
 - run `rails db:create` to create a database locally.
@@ -52,42 +52,56 @@ This web app makes use of the following:
 
 Users are able to sign up and sign in. Upon signing in, users are taken to their home page.
 
+<p align="center">
 <img src="./readme-gifs/signin-signup.gif"
      alt="sign in option taken to home page"
      style="max-width: 100%" />
+</p>
 
 User is able to see a list of restaurants in the New York City area via a list and on Google Maps. User is able to use buttons to filter restaurants based on categories. 
 
+<p align="center">
 <img src="./readme-gifs/filterbycategory.gif"
      alt="filter by category"
      style="max-width: 100%" />
+</p>
 
 User is able to search by restaurant name.
 
+<p align="center">
 <img src="./readme-gifs/searchbyrestaurantname.gif"
      alt="search bar"
      style="max-width: 100%" />
+</p>
 
 User is able to to click on a restaurant card and be taken to one specific restaurant where menu items are displayed. User is able to add and remove items from cart. 
 
+<p align="center">
 <img src="./readme-gifs/menu-item.gif"
      alt="User is able to to click on a restaurant card and be taken to one specific restaurant where menu items are displayed"
      style="max-width: 100%" />
+</p>
 
 Upon checkout, user is able to enter their credit card information.
 
+<p align="center">
 <img src="./readme-gifs/pay.gif"
      alt="User is able to add and remove items from cart. Upon checkout, user is able to enter their credit card information"
      style="max-height: 100%" />
+</p>
 
 User is able to go to their profile page and see their confirmed order. 
 
+<p align="center">
 <img src="./readme-gifs/confirm.gif"
      alt="User is able to go to their profile page and see their confirmed order"
      style="max-height: 100%" />
+</p>
 
 User is able to delete their account or log out. 
 
+<p align="center">
 <img src="./readme-gifs/delete-logout.gif"
      alt="User is able to delete their account"
      style="max-height: 100%" />
+</p>
