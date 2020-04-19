@@ -4,6 +4,12 @@
   A <code>React</code> web app designed as a food delivery application that connects diners to restaurants. 
 </div>
 
+<div align="center">
+  <p> 🧭Explore:
+    <a href="https://www.youtube.com/watch?v=NHUCMuNcN_g">Demo</a> || <a href="https://github.com/bigfishh/hubgrub-api">Backend</a>
+  </p>
+</div>
+
 <br />
 
 ## Tech Stack
