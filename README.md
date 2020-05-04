@@ -35,7 +35,7 @@ This web app makes use of the following:
 - Stripe API
 
 ## Installing
-_Note: Without Stripe API key, Google Maps API key and YelpFusion API key, the project will not function to it's fullest potential_<br />
+_Note: Without Stripe API key, Google Maps API key and Yelp API key, the project will not function to it's fullest potential_<br />
 
 **Backend Installation:**
 
